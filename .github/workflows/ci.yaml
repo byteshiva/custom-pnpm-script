@@ -22,5 +22,5 @@ jobs:
 
     - name: Test custom pnpm script
       run: |
-        result=$(nix-build nix/pnpm-shim.nix)
+        result=$(nix-build pnpm-shim.nix)
         $result/bin/pnpm --version
