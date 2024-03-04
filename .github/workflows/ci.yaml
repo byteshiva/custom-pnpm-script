@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v18
+
+    - name: Build custom pnpm script
+      run: |
+        nix-build nix/pnpm-shim.nix
+
+    - name: Test custom pnpm script
+      run: |
+        result=$(nix-build nix/pnpm-shim.nix)
+        $result/bin/pnpm --version
