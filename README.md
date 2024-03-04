@@ -30,6 +30,9 @@ git clone https://github.com/byteshiva/custom-pnpm-script.git
 cd custom-pnpm-script
 ```
 
+> ### This is a one-time requirement.
+Run `direnv allow` once.
+
 ### Step 3: Verify PNPM Installation
 
 Check the installed PNPM version using:
